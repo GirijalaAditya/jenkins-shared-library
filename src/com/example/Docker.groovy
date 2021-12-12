@@ -13,6 +13,6 @@ class Docker implements Serializable {
     {
         script.echo "Building the Docker Image"
         script.sh "docker build -t gradle-app ."
-        script.sh "docker tag gradle-app $imageName:${env.BUILD_ID}"
+        script.sh "docker tag gradle-app $imageName:script.${env.BUILD_ID}"
     }
 }
