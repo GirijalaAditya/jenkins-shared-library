@@ -1,8 +1,8 @@
 #!/usr/bin/env groovy
 
+import com.example.Docker
+
 def call(String imageName)
 {
-    echo "Building the Docker Image"
-    sh "docker build -t gradle-app ."
-    sh "docker tag gradle-app $imageName:${env.BUILD_ID}"
+    return new Docker(this).buildDockerImage(imageName)
 }
